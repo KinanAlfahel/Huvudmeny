@@ -8,7 +8,6 @@ namespace Huvudmeny
 {
     class MainMenu
     {
-        public int Selection;
 
         public void Start()
         {
@@ -24,79 +23,55 @@ namespace Huvudmeny
             Console.WriteLine("---------------------------------------------");
             Console.WriteLine("Enter Your Choice: ");
 
-            string SelectionNumber;
-            SelectionNumber = Console.ReadLine();
-            if (SelectionNumber.GetType() == typeof(string))
+            switch (Console.ReadLine())
             {
-                Console.WriteLine(" ");
-                Console.WriteLine("You entered invalid value, please enter a number!");
-                Start();
-            }
-            Selection = int.Parse(SelectionNumber);
-
-
-
-            while (Selection != 0)
-            {
-                if (Selection > 3 || Selection < 0)
-                {
+                case "1":
+                    Selection1();
+                    break;
+                case "2":
+                    Selection2();
+                    break;
+                case "3":
+                    Selection3();
+                    break;
+                case "0":
+                    Console.WriteLine("Good Bye and Hava a Nice Day! ");
+                    break;
+                default:
                     Console.WriteLine(" ");
                     Console.WriteLine("You entered invalid value, please enter a number!");
                     Start();
-                }
-                else
-                {
-                    Selections();
-                }
-            };
-
-            Console.WriteLine("Good Bye and Hava a Nice Day! ");
-            Console.ReadLine();
-
-        }
-
-        public void Selections()
-        {
-
-            switch (Selection)
-            {
-                case 1:
-                    Selection1();
-                    break;
-
-                case 2:
-                    Selection2();
-                    break;
-                case 3:
-                    Selection3();
                     break;
             }
-
-            Start();
         }
 
         private void Selection1()
         {
-            string age = Console.ReadLine();
 
-            int selectionx = int.Parse(age);
-            string result;
+            Console.WriteLine("Enter Number of Guests");
+            string num = Console.ReadLine();
+            int Numberofguests;
+            while (!int.TryParse(num, out Numberofguests))
+            {
+                Console.WriteLine("Enter valid value!");
+                num = Console.ReadLine();
+            }
+            
+            double totalcost=0;
+            double costresult=0;
+            
 
-            if (selectionx < 20)
+            for (int i = 0; i < Numberofguests; i++)
             {
-                result = "Ungdomspris: 80kr";
-                Console.WriteLine(result);
+                //AgeRange(cost);
+                //calculations(totalcost,cost);
+                totalcost = totalcost + AgeRange(costresult);
+
             }
-            else if (selectionx > 64)
-            {
-                result = "Pensionärspris: 90kr";
-                Console.WriteLine(result);
-            }
-            else
-            {
-                result = "Standardpris: 120kr";
-                Console.WriteLine(result);
-            }
+
+            Console.WriteLine("Total cost = " + totalcost);
+            Console.WriteLine("==========================");
+            Console.WriteLine("==========================");
         }
 
         private void Selection2()
@@ -107,6 +82,48 @@ namespace Huvudmeny
         private void Selection3()
         {
 
+        }
+
+        public double AgeRange(double costresult)
+        {
+            Console.WriteLine("Please enter guest's age:");
+            string age = Console.ReadLine();
+
+            int selectionx = int.Parse(age);
+            string result;
+
+            if (selectionx < 20)
+            {
+                result = "Ungdomspris: 80kr";
+                costresult = 80;
+                Console.WriteLine(result);
+            }
+            else if (selectionx > 64)
+            {
+                result = "Pensionärspris: 90kr";
+                costresult = 90;
+                Console.WriteLine(result);
+            }
+            else
+            {
+                result = "Standardpris: 120kr";
+                costresult = 120;
+                Console.WriteLine(result);
+            }
+
+            return costresult;
+        }
+        //public double calculations(double totalcost, double cost)
+        //{
+        //    totalcost = totalcost + cost;
+        //    return totalcost;
+        //}    
+        public double TotalCost()
+        {
+
+
+
+            return 0;
         }
     }
 }
