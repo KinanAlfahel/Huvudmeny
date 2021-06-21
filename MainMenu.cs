@@ -34,7 +34,7 @@ namespace Huvudmeny
             }
             Selection = int.Parse(SelectionNumber);
 
-           
+
 
             while (Selection != 0)
             {
@@ -79,23 +79,24 @@ namespace Huvudmeny
         {
             string age = Console.ReadLine();
 
-            int agenumber;
             int selectionx = int.Parse(age);
-
+            string result;
 
             if (selectionx < 20)
             {
-                Console.WriteLine("Ungdomspris: 80kr");
+                result = "Ungdomspris: 80kr";
+                Console.WriteLine(result);
             }
             else if (selectionx > 64)
             {
-                Console.WriteLine("Pensionärspris: 90kr");
+                result = "Pensionärspris: 90kr";
+                Console.WriteLine(result);
             }
-            else {
-                Console.WriteLine("Standardpris: 120kr");
+            else
+            {
+                result = "Standardpris: 120kr";
+                Console.WriteLine(result);
             }
-
-
         }
 
         private void Selection2()
