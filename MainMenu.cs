@@ -76,7 +76,14 @@ namespace Huvudmeny
 
         private void Selection2()
         {
+            Console.WriteLine("Please enter any text: ");
+            Console.WriteLine(" ");
+            string x = Console.ReadLine();
 
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write((i+1) + "." + x + ", ");
+            }
         }
 
         private void Selection3()
