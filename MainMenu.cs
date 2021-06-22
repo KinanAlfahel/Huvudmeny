@@ -88,7 +88,32 @@ namespace Huvudmeny
 
         private void Selection3()
         {
+            Console.WriteLine("Please enter any sentence contains at least 3 word");
+            String str = Console.ReadLine();
 
+            char[] spearator = { ',', ' ' };
+
+            // using the method
+            String[] strlist = str.Split(spearator);
+
+            if (strlist.Length < 3)
+            {
+                Console.WriteLine("Wrong number of words!");
+                Selection3();
+            }
+            else
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine(strlist[2]);
+                Console.WriteLine(" ");
+            }
+
+            //foreach (String s in strlist)
+            //{
+            //    Console.WriteLine(s);
+            //}
+            //Console.ReadKey();
         }
 
         public double AgeRange(double costresult)
@@ -111,6 +136,18 @@ namespace Huvudmeny
                 costresult = 90;
                 Console.WriteLine(result);
             }
+            else if (selectionx > 100)
+            {
+                result = "Pensionärspris: 0kr";
+                costresult = 0;
+                Console.WriteLine(result);
+            }
+            else if (selectionx < 5)
+            {
+                result = "Barnpris: 0kr";
+                costresult = 0;
+                Console.WriteLine(result);
+            }
             else
             {
                 result = "Standardpris: 120kr";
@@ -119,18 +156,6 @@ namespace Huvudmeny
             }
 
             return costresult;
-        }
-        //public double calculations(double totalcost, double cost)
-        //{
-        //    totalcost = totalcost + cost;
-        //    return totalcost;
-        //}    
-        public double TotalCost()
-        {
-
-
-
-            return 0;
-        }
+        }      
     }
 }
