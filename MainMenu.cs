@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Huvudmeny
 {
     class MainMenu
-    {
+    { 
 
         public void Start()
         {
